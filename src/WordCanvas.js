@@ -66,7 +66,7 @@ const englishToArabic = {
   a: "ا",
   b: "ب",
   t: "ت",
-    "خ": g,
+   g: "خ",
   i: "ث",
   j: "ج",
   h: "ح",
@@ -111,10 +111,8 @@ function useWindowSize() {
 const WordCanvas = (props) => {
   const { width, height } = useWindowSize();
 
-  // Temporary edit state for the chip
   const [pendingSize, setPendingSize] = useState(160);
   const [pendingColor, setPendingColor] = useState("#111");
-  // Active state for new letters
   const [letterSize, setLetterSize] = useState(160);
   const [letterColor, setLetterColor] = useState("#111");
 
@@ -153,7 +151,7 @@ const WordCanvas = (props) => {
         if (currentLetters.length > 0) {
           setWords((prev) => [
             ...prev,
-            // Save the current letters as a word, with their own size/color
+    
             { letters: currentLetters, time: Date.now() }
           ]);
           setCurrentLetters([]);
@@ -162,7 +160,7 @@ const WordCanvas = (props) => {
       } else if (e.key === "Backspace") {
         setCurrentLetters((prev) => prev.slice(0, -1));
       } else {
-        // Support both Arabic and English input
+
         let letter = e.key;
         if (!svgMap[letter] && englishToArabic[letter]) {
           letter = englishToArabic[letter];
@@ -196,11 +194,10 @@ const WordCanvas = (props) => {
 
   const now = Date.now();
 
-  // Update pending values when active values change (for initial sync)
   useEffect(() => {
     setPendingSize(letterSize);
     setPendingColor(letterColor);
-  }, []); // Only on mount
+  }, []); 
 
   return (
     <>

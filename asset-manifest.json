@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/wordalphabet/static/css/main.f50ad603.css",
-    "main.js": "/wordalphabet/static/js/main.39ad42fa.js",
+    "main.js": "/wordalphabet/static/js/main.f3e35a2e.js",
     "static/js/453.2769377b.chunk.js": "/wordalphabet/static/js/453.2769377b.chunk.js",
     "static/media/و.svg": "/wordalphabet/static/media/و.4ef5c4f50e41d1c62ddc2c52f5d1fd95.svg",
     "index.html": "/wordalphabet/index.html",
     "static/media/ي.svg": "/wordalphabet/static/media/ي.8c7882e945bc9cb6bba350da2f467f22.svg",
     "static/media/ن.svg": "/wordalphabet/static/media/ن.0f464d2c9e067bb0c7346acdb874e150.svg",
     "main.f50ad603.css.map": "/wordalphabet/static/css/main.f50ad603.css.map",
-    "main.39ad42fa.js.map": "/wordalphabet/static/js/main.39ad42fa.js.map",
+    "main.f3e35a2e.js.map": "/wordalphabet/static/js/main.f3e35a2e.js.map",
     "453.2769377b.chunk.js.map": "/wordalphabet/static/js/453.2769377b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f50ad603.css",
-    "static/js/main.39ad42fa.js"
+    "static/js/main.f3e35a2e.js"
   ]
 }

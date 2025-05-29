@@ -1,18 +1,43 @@
 {
   "files": {
     "main.css": "/wordalphabet/static/css/main.42c6d72f.css",
-    "main.js": "/wordalphabet/static/js/main.a4758b54.js",
+    "main.js": "/wordalphabet/static/js/main.873cac1f.js",
     "static/js/453.2769377b.chunk.js": "/wordalphabet/static/js/453.2769377b.chunk.js",
+    "static/media/ب.svg": "/wordalphabet/static/media/ب.eba47e2c9d8f5ae701fc2c7d6e9f97d0.svg",
     "static/media/و.svg": "/wordalphabet/static/media/و.4ef5c4f50e41d1c62ddc2c52f5d1fd95.svg",
     "index.html": "/wordalphabet/index.html",
+    "static/media/ف.svg": "/wordalphabet/static/media/ف.58cd312b8cfe33739f97277c724134d7.svg",
+    "static/media/م.svg": "/wordalphabet/static/media/م.8ae644acf929612b2da241d6d9babfe9.svg",
+    "static/media/ق.svg": "/wordalphabet/static/media/ق.5c271ef36031a373e383d10e4d1718de.svg",
+    "static/media/ك.svg": "/wordalphabet/static/media/ك.5ccfc98b411e23d3197408611acfa52b.svg",
     "static/media/ي.svg": "/wordalphabet/static/media/ي.8c7882e945bc9cb6bba350da2f467f22.svg",
+    "static/media/ت.svg": "/wordalphabet/static/media/ت.3f8e9bd07967869c91c51fbff4aefbd6.svg",
+    "static/media/ذ.svg": "/wordalphabet/static/media/ذ.d7e8a948acd98cd94b0bb3ea454831e9.svg",
+    "static/media/ز.svg": "/wordalphabet/static/media/ز.d7e8a948acd98cd94b0bb3ea454831e9.svg",
+    "static/media/ض.svg": "/wordalphabet/static/media/ض.d7e8a948acd98cd94b0bb3ea454831e9.svg",
+    "static/media/ظ.svg": "/wordalphabet/static/media/ظ.d7e8a948acd98cd94b0bb3ea454831e9.svg",
+    "static/media/ث.svg": "/wordalphabet/static/media/ث.373cff4ff5ab917ddd7ac5e110d0121e.svg",
+    "static/media/alef.svg": "/wordalphabet/static/media/alef.3ce5ef003f8b5e7f516d16fe25c03a4e.svg",
+    "static/media/غ.svg": "/wordalphabet/static/media/غ.a643f36c0a15b24fe946aa1bcb13335b.svg",
+    "static/media/ج.svg": "/wordalphabet/static/media/ج.da33895bc702eff8209760e237b861eb.svg",
+    "static/media/ش.svg": "/wordalphabet/static/media/ش.9df7e171193537ad660aac07e2bfe614.svg",
+    "static/media/ح.svg": "/wordalphabet/static/media/ح.d016c43be7d7268413dafdeaaee4d17d.svg",
+    "static/media/د.svg": "/wordalphabet/static/media/د.0f464d2c9e067bb0c7346acdb874e150.svg",
+    "static/media/ر.svg": "/wordalphabet/static/media/ر.0f464d2c9e067bb0c7346acdb874e150.svg",
+    "static/media/س.svg": "/wordalphabet/static/media/س.cf74fb933088144ee4259fe79c69eac1.svg",
+    "static/media/ص.svg": "/wordalphabet/static/media/ص.cf74fb933088144ee4259fe79c69eac1.svg",
+    "static/media/ط.svg": "/wordalphabet/static/media/ط.0f464d2c9e067bb0c7346acdb874e150.svg",
+    "static/media/ع.svg": "/wordalphabet/static/media/ع.cdd2707b1727b8048efbcd2dcde0c265.svg",
+    "static/media/ل.svg": "/wordalphabet/static/media/ل.0f464d2c9e067bb0c7346acdb874e150.svg",
     "static/media/ن.svg": "/wordalphabet/static/media/ن.0f464d2c9e067bb0c7346acdb874e150.svg",
+    "static/media/ه.svg": "/wordalphabet/static/media/ه.093ca8fb62911887d2504d76976f20bd.svg",
+    "static/media/خ.svg": "/wordalphabet/static/media/خ.c633fbaa25ab5e7c2eb6ff4cb98bf4cd.svg",
     "main.42c6d72f.css.map": "/wordalphabet/static/css/main.42c6d72f.css.map",
-    "main.a4758b54.js.map": "/wordalphabet/static/js/main.a4758b54.js.map",
+    "main.873cac1f.js.map": "/wordalphabet/static/js/main.873cac1f.js.map",
     "453.2769377b.chunk.js.map": "/wordalphabet/static/js/453.2769377b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42c6d72f.css",
-    "static/js/main.a4758b54.js"
+    "static/js/main.873cac1f.js"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wordalphabet/static/css/main.42c6d72f.css",
-    "main.js": "/wordalphabet/static/js/main.873cac1f.js",
+    "main.js": "/wordalphabet/static/js/main.116669b1.js",
     "static/js/453.2769377b.chunk.js": "/wordalphabet/static/js/453.2769377b.chunk.js",
     "static/media/ب.svg": "/wordalphabet/static/media/ب.eba47e2c9d8f5ae701fc2c7d6e9f97d0.svg",
     "static/media/و.svg": "/wordalphabet/static/media/و.4ef5c4f50e41d1c62ddc2c52f5d1fd95.svg",
@@ -33,11 +33,11 @@
     "static/media/ه.svg": "/wordalphabet/static/media/ه.093ca8fb62911887d2504d76976f20bd.svg",
     "static/media/خ.svg": "/wordalphabet/static/media/خ.c633fbaa25ab5e7c2eb6ff4cb98bf4cd.svg",
     "main.42c6d72f.css.map": "/wordalphabet/static/css/main.42c6d72f.css.map",
-    "main.873cac1f.js.map": "/wordalphabet/static/js/main.873cac1f.js.map",
+    "main.116669b1.js.map": "/wordalphabet/static/js/main.116669b1.js.map",
     "453.2769377b.chunk.js.map": "/wordalphabet/static/js/453.2769377b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42c6d72f.css",
-    "static/js/main.873cac1f.js"
+    "static/js/main.116669b1.js"
   ]
 }

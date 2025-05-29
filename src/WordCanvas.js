@@ -100,8 +100,6 @@ const WordCanvas = (props) => {
 
   return (
     <svg
-      width={width}
-      height={height}
       style={{
         backgroundColor: "white",
         display: "block",
@@ -113,6 +111,8 @@ const WordCanvas = (props) => {
         height: "100vh",
         pointerEvents: "none",
       }}
+      viewBox={`0 0 ${width} ${height}`}
+      preserveAspectRatio="none"
     >
       {words.map(({ letters, time }, idx) => {
         const opacity = 1 - (now - time) / fadeDuration;

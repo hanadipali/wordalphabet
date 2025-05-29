@@ -8,8 +8,7 @@ import React, { useState, useEffect } from "react";
 const svgMap = {
   a: AIcon,
   b: BIcon,
-  c: CIcon,
-  // ...
+  c: CIcon
 };
 
 const fadeDuration = 6000; 
@@ -36,14 +35,12 @@ const WordCanvas = (props) => {
     y: Math.random() * (height - 100), 
   });
 
-  
   function isOverlapping(pos1, pos2, size = 100, padding = 10) {
     return (
       Math.abs(pos1.x - pos2.x) < size + padding &&
       Math.abs(pos1.y - pos2.y) < size + padding
     );
   }
-
 
   function getNonOverlappingPosition(existingPositions, maxTries = 100) {
     let tries = 0;
@@ -60,7 +57,6 @@ const WordCanvas = (props) => {
 
   const [currentLetters, setCurrentLetters] = useState([]);
   const [words, setWords] = useState([]);
-
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
@@ -76,7 +72,7 @@ const WordCanvas = (props) => {
         e.preventDefault();
       } else if (e.key === "Backspace") {
         setCurrentLetters((prev) => prev.slice(0, -1));
-      } else if (/^[a-zA-Z]$/.test(e.key)) {
+      } else if (/^[a-cA-C]$/.test(e.key)) {
         const letter = e.key.toLowerCase();
         setCurrentLetters((prev) => {
           const existingPositions = prev.map((l) => l.pos);
@@ -132,16 +128,7 @@ const WordCanvas = (props) => {
                   x={pos.x}
                   y={pos.y}
                 />
-              ) : (
-                <circle
-                  key={i}
-                  cx={pos.x + 50}
-                  cy={pos.y + 50}
-                  r={50}
-                  stroke="gray"
-                  fill="none"
-                />
-              );
+              ) : null;
             })}
           </g>
         );
@@ -157,16 +144,7 @@ const WordCanvas = (props) => {
             x={pos.x}
             y={pos.y}
           />
-        ) : (
-          <circle
-            key={`current-${i}`}
-            cx={pos.x + 50}
-            cy={pos.y + 50}
-            r={50}
-            stroke="gray"
-            fill="none"
-          />
-        );
+        ) : null;
       })}
     </svg>
   );

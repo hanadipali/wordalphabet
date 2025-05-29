@@ -46,17 +46,16 @@ function App() {
     <div
       className="App"
       style={{
-        minHeight: "60vh",
-        height: "60vh",
+        height: "100vh",
+        width: "100vw",
         overflow: "hidden",
         fontSize: "1em",
-        padding: "24px",
+        padding: 0,
         margin: 0,
         boxSizing: "border-box",
         position: "relative",
       }}
     >
-      {/* Save Button */}
       <button
         id="save-btn"
         onClick={handleSave}
@@ -101,7 +100,10 @@ function App() {
           marginLeft: 0,
           paddingTop: 0,
           position: "relative",
-          zIndex: 2, 
+          zIndex: 2,
+          paddingLeft: "1vw",
+          paddingTop: "1vw",
+          maxWidth: "60vw",
         }}
       >
         <h1
@@ -127,11 +129,12 @@ function App() {
       <div
         style={{
           position: "fixed",
-          top: 24,
-          right: 24,
+          top: "1vw",
+          right: "1vw",
           textAlign: "right",
           direction: "rtl",
-          zIndex: 2, 
+          zIndex: 2,
+          maxWidth: "60vw",
         }}
       >
         <h1

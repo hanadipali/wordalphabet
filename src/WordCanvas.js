@@ -1,38 +1,175 @@
 // src/WordCanvas.js
-import React, { useEffect, useRef } from "react";
+import { ReactComponent as AIcon } from '/Users/hanadikaleel/alphabet/src/ي.svg';
+import { ReactComponent as BIcon } from '/Users/hanadikaleel/alphabet/src/ن.svg';
+import { ReactComponent as CIcon } from '/Users/hanadikaleel/alphabet/src/و.svg';
 
-const WordCanvas = ({ words, currentWord }) => {
-  const canvasRef = useRef(null);
+import React, { useState, useEffect } from "react";
+
+const svgMap = {
+  a: AIcon,
+  b: BIcon,
+  c: CIcon,
+  // ...
+};
+
+const fadeDuration = 6000; 
+
+function useWindowSize() {
+  const [size, setSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    const handleResize = () =>
+      setSize({ width: window.innerWidth, height: window.innerHeight });
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return size;
+}
+
+const WordCanvas = (props) => {
+  const { width, height } = useWindowSize();
+
+  const getRandomPosition = () => ({
+    x: Math.random() * (width - 100), 
+    y: Math.random() * (height - 100), 
+  });
+
+  
+  function isOverlapping(pos1, pos2, size = 100, padding = 10) {
+    return (
+      Math.abs(pos1.x - pos2.x) < size + padding &&
+      Math.abs(pos1.y - pos2.y) < size + padding
+    );
+  }
+
+
+  function getNonOverlappingPosition(existingPositions, maxTries = 100) {
+    let tries = 0;
+    let pos;
+    do {
+      pos = getRandomPosition();
+      tries++;
+    } while (
+      existingPositions.some((p) => isOverlapping(p, pos)) &&
+      tries < maxTries
+    );
+    return pos;
+  }
+
+  const [currentLetters, setCurrentLetters] = useState([]);
+  const [words, setWords] = useState([]);
+
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    const padding = 60;
-    const maxCircles = 4;
-    const y = 120;
-    const wordSpacing = 130;
-
-    const allWords = [...words, currentWord].filter(Boolean);
-
-    allWords.forEach((word, i) => {
-      const x = padding + i * wordSpacing;
-      const numCircles = Math.min(maxCircles, Math.ceil(word.length / 2));
-
-      for (let j = 0; j < numCircles; j++) {
-        const radius = 10 + j * 10;
-        ctx.beginPath();
-        ctx.arc(x, y, radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = `hsl(${(i * 60 + j * 30) % 360}, 70%, 60%)`;
-        ctx.lineWidth = 2;
-        ctx.stroke();
+    const handleKeyDown = (e) => {
+      if (e.key === " ") {
+        if (currentLetters.length > 0) {
+          setWords((prev) => [
+            ...prev,
+            { letters: currentLetters, time: Date.now() },
+          ]);
+          setCurrentLetters([]);
+        }
+        e.preventDefault();
+      } else if (e.key === "Backspace") {
+        setCurrentLetters((prev) => prev.slice(0, -1));
+      } else if (/^[a-zA-Z]$/.test(e.key)) {
+        const letter = e.key.toLowerCase();
+        setCurrentLetters((prev) => {
+          const existingPositions = prev.map((l) => l.pos);
+          const pos = getNonOverlappingPosition(existingPositions);
+          return [...prev, { letter, pos }];
+        });
       }
-    });
-  }, [words, currentWord]);
+    };
 
-  return <canvas ref={canvasRef} width={900} height={250} />;
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentLetters]);
+
+  useEffect(() => {
+    const interval = setInterval(() => setTick((t) => t + 1), 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const now = Date.now();
+    setWords((prev) => prev.filter((w) => now - w.time < fadeDuration));
+  }, [tick]);
+
+  const now = Date.now();
+
+  return (
+    <svg
+      width={width}
+      height={height}
+      style={{
+        backgroundColor: "white",
+        display: "block",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 0,
+        width: "100vw",
+        height: "100vh",
+        pointerEvents: "none",
+      }}
+    >
+      {words.map(({ letters, time }, idx) => {
+        const opacity = 1 - (now - time) / fadeDuration;
+        return (
+          <g key={idx} style={{ opacity }}>
+            {letters.map(({ letter, pos }, i) => {
+              const SVGComponent = svgMap[letter];
+              return SVGComponent ? (
+                <SVGComponent
+                  key={i}
+                  width={100}
+                  height={100}
+                  x={pos.x}
+                  y={pos.y}
+                />
+              ) : (
+                <circle
+                  key={i}
+                  cx={pos.x + 50}
+                  cy={pos.y + 50}
+                  r={50}
+                  stroke="gray"
+                  fill="none"
+                />
+              );
+            })}
+          </g>
+        );
+      })}
+
+      {currentLetters.map(({ letter, pos }, i) => {
+        const SVGComponent = svgMap[letter];
+        return SVGComponent ? (
+          <SVGComponent
+            key={`current-${i}`}
+            width={100}
+            height={100}
+            x={pos.x}
+            y={pos.y}
+          />
+        ) : (
+          <circle
+            key={`current-${i}`}
+            cx={pos.x + 50}
+            cy={pos.y + 50}
+            r={50}
+            stroke="gray"
+            fill="none"
+          />
+        );
+      })}
+    </svg>
+  );
 };
 
 export default WordCanvas;

@@ -50,8 +50,8 @@ function App() {
         width: "100vw",
         overflow: "hidden",
         fontSize: "1em",
-        padding: 0,
         margin: 0,
+        padding: 0,
         boxSizing: "border-box",
         position: "relative",
       }}

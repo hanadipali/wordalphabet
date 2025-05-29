@@ -62,6 +62,37 @@ const svgMap = {
 };
 const fadeDuration = 6000; 
 
+const englishToArabic = {
+  a: "ا",
+  b: "ب",
+  t: "ت",
+  th: "ث",
+  j: "ج",
+  h: "ح",
+  kh: "خ",
+  d: "د",
+  dh: "ذ",
+  r: "ر",
+  z: "ز",
+  s: "س",
+  sh: "ش",
+  s2: "ص",
+  d2: "ض",
+  t2: "ط",
+  z2: "ظ",
+  e: "ع",
+  gh: "غ",
+  f: "ف",
+  q: "ق",
+  k: "ك",
+  l: "ل",
+  m: "م",
+  n: "ن",
+  h2: "ه",
+  w: "و",
+  y: "ي"
+};
+
 function useWindowSize() {
   const [size, setSize] = useState({
     width: window.innerWidth,
@@ -129,16 +160,22 @@ const WordCanvas = (props) => {
         e.preventDefault();
       } else if (e.key === "Backspace") {
         setCurrentLetters((prev) => prev.slice(0, -1));
-      } else if (svgMap[e.key]) {
-        const letter = e.key;
-        setCurrentLetters((prev) => {
-          const existingPositions = prev.map((l) => l.pos);
-          const pos = getNonOverlappingPosition(existingPositions);
-          return [
-            ...prev,
-            { letter, pos, size: letterSize, color: letterColor }
-          ];
-        });
+      } else {
+        // Support both Arabic and English input
+        let letter = e.key;
+        if (!svgMap[letter] && englishToArabic[letter]) {
+          letter = englishToArabic[letter];
+        }
+        if (svgMap[letter]) {
+          setCurrentLetters((prev) => {
+            const existingPositions = prev.map((l) => l.pos);
+            const pos = getNonOverlappingPosition(existingPositions);
+            return [
+              ...prev,
+              { letter, pos, size: letterSize, color: letterColor }
+            ];
+          });
+        }
       }
     };
 
